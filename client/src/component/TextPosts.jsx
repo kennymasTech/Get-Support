@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import {
   Button,
   Flex,
@@ -15,6 +16,7 @@ const TextPosts = () => {
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log(description);
@@ -41,6 +43,7 @@ const TextPosts = () => {
         }
       );
 console.log(response)
+navigate('/posts')
  
     } catch (error) {
       console.log(error);

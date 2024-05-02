@@ -229,6 +229,8 @@ const MobileNav = ({ onOpen, ...rest }) => {
   const logout = useLogout();
   // const user = useRecoilValue(userAtom);
   const navigate = useNavigate();
+  const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+
 
   return (
     <Flex
@@ -273,7 +275,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
               <HStack>
                 <Avatar
                   size={"sm"}
-                  //  src={user?.avatar}
+                   src={loggedUser?.avatar}
                 />
                 <VStack
                   display={{ base: "none", md: "flex" }}
@@ -282,7 +284,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   ml="2"
                 >
                   <Text fontSize="sm" color="gray.600">
-                    {/* {user?.name} */}
+                    {loggedUser?.name}
                   </Text>
                 </VStack>
                 <Box display={{ base: "none", md: "flex" }}>

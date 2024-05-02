@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import {
   Button,
   Flex,
@@ -17,6 +18,7 @@ const AudioPosts = () => {
   const [audio, setAudio] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const navigate = useNavigate();
 
 
   const handleFileChange = (event) => {
@@ -59,6 +61,8 @@ const AudioPosts = () => {
         }
       );
       console.log(response);
+      navigate("/posts");
+
     } catch (error) {
       console.log(error);
     }

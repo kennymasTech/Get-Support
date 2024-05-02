@@ -1,13 +1,14 @@
 import { Button, Flex, FormControl, FormLabel, Input, Textarea } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { axiosPrivate } from '../api/axios';
 
 const VideoPosts = () => {
     const [video, setVideo] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const navigate = useNavigate();
 
 
   const handleFileChange = (event) => {
@@ -50,6 +51,8 @@ const VideoPosts = () => {
         }
       );
       console.log(response);
+      navigate('/posts')
+
     } catch (error) {
       console.log(error);
     }

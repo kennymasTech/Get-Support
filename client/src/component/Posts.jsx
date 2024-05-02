@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SidebarWithHeader from "./SidebarWithHeader";
-import { Button, Flex, Img, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Img, Text } from "@chakra-ui/react";
 import { FaVideo } from "react-icons/fa6";
 import { MdAudiotrack } from "react-icons/md";
 import { MdPostAdd } from "react-icons/md";
@@ -10,8 +10,26 @@ import { Link } from "react-router-dom";
 import { CheckIcon } from "@chakra-ui/icons";
 import PostItem from "./PostItem";
 import AllPosts from "./AllPosts";
+import { axiosPrivate } from "../api/axios";
 
 const Posts = () => {
+  const [posts, setPosts] = React.useState([]);
+  useEffect(() => {
+    const fetchPosts = async (event) => {
+      try {
+        const response = await axiosPrivate.get("/creators/posts", {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        });
+        setPosts(response.data);
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchPosts();
+  }, []);
+
   return (
     <>
       {/* <SidebarWithHeader> */}
@@ -120,30 +138,30 @@ const Posts = () => {
       </Flex>
       {/* <AllPosts /> */}
 
-      {/* <PostItem  />
-      <Text>Post love that you love Bito’s AI Code Completions!
-              You have hit your limit for AI Code Completions per <br /> day on your plan.
-              To receive more Completions, please upgrade your plan or <br /> contact mailto:support@bito.ai
-              Post love that you love Bito’s AI Code Completions!
-              You have hit your limit for AI Code Completions per <br /> day on your plan.
-              To receive more Completions, please upgrade your plan or <br /> contact mailto:support@bito.ai
-              Post love that you love Bito’s AI Code Completions!
-              You have hit your limit for AI Code Completions per <br /> day on your plan.
-              To receive more Completions, please upgrade your plan or <br /> contact mailto:support@bito.ai
-              </Text>
-
-      <PostItem  />
-      <img src="Img 5.png" alt="image" />
-
-      <PostItem  />
-      <audio src="Asake-Nzaza.mp3" alt="music" />
-
-      <PostItem  />
-      <video src="All-of-Me-John-Legend-Cover.mp4" alt="video" /> */}
-      
-
-
-      {/* </SidebarWithHeader> */}
+      <Box px={8}>
+        {posts.map((post) => (
+          <Box borderBottom={"1px solid black"} mb={5}>
+            <PostItem key={post._id} post={post} />
+            {post.type === "text" ? (
+              <Center>
+                <Text>{post.text}</Text>
+              </Center>
+            ) : post.type === "photo" ? (
+              <Center>
+                <img src={post.fileUrl} alt={post.description} />
+              </Center>
+            ) : post.type === "audio" ? (
+              <Center>
+                <audio src={post.fileUrl} controls alt={post.description} />
+              </Center>
+            ) : post.type === "video" ? (
+              <Center>
+                <video src={post.fileUrl} controls alt={post.description} />
+              </Center>
+            ) : null}
+          </Box>
+        ))}
+      </Box>
     </>
   );
 };
