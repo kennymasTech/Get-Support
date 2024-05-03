@@ -33,7 +33,7 @@ const Posts = () => {
   return (
     <>
       {/* <SidebarWithHeader> */}
-
+      
       <Flex bg={"#FAF8F0"} display={"flex"} align={"center"} p={10}>
         <Flex
           bg={"#FAF8F0"}
