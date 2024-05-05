@@ -54,17 +54,17 @@ function App() {
         <Route path="/user-page" element={<UserPage />} />
         <Route path="/post-Item" element={<PostItem />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/creator-sub" element={<CreatorPostsPage />} />
+        <Route path="/creator/:creatorId" element={<CreatorPostsPage />} />
+        <Route path="/creator-posts" element={<CreatorPosts />} />
         {/* <Route path="/audio" element={<AudioPosts />} /> */}
         <Route path="/payment" element={<Payment />} />
+        <Route path="/barchart" element={<BarChart />} />
         {/* <Route path="/video" element={<VideoPosts />} /> */}
         {/* <Route path="/photo" element={<PhotoPosts />} /> */}
         {/* <Route path="/text" element={<TextPosts />} /> */}
         {/* <Route path="/dashboards" element={<Dashboard />} /> */}
         {/* <Route path="/user-posts" element={<UserPosts />} /> */}
-        <Route path="/creator-posts" element={<CreatorPosts />} />
         {/* <Route path="/actions" element={<Actions />} /> */}
-        <Route path="/barchart" element={<BarChart />} />
         {/* <Route path="/creators" element={<Creators />} /> */}
         {/* <Route path="/posts" element={<Posts />} /> */}
         {/* <Route path="/herosect" element={<HeroSect />} /> */}

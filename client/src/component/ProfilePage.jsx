@@ -78,7 +78,7 @@ export default function ProfilePage() {
         >
           <Flex>
             <Link
-              to={"/creators"}
+              to={-1}
             >
               {<FaArrowLeft />}
             </Link>

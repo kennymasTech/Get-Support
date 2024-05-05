@@ -44,7 +44,7 @@ const UserPosts = ({ likes, replies, postTitle, postImg }) => {
         <Flex flexDir={"column"} alignItems={"center"}>
           <Avatar src="/post1.png" name="Mark Zuckerberg" size={"md"} />
           <Box w={"1px"} h={"full"} bg={"gray.light"} my={2}></Box>
-          <Box pos={"relative"} w={"full"}>
+          {/* <Box pos={"relative"} w={"full"}>
             <Avatar
               src="/post1.png"
               name="Wale Adenuga"
@@ -72,7 +72,7 @@ const UserPosts = ({ likes, replies, postTitle, postImg }) => {
               left={"4px"}
               padding={"2px"}
             />
-          </Box>
+          </Box> */}
         </Flex>
 
         <Flex flex={1} flexDir={"column"} gap={2}>
