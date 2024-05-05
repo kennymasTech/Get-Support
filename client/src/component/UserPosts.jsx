@@ -25,7 +25,7 @@ const UserPosts = ({ likes, replies, postTitle, postImg }) => {
   return (
     <>
     <Flex px={10} py={5}>
-        <Link to={"/user-page"}>
+        <Link to={"/creators"}>
           <Button
             leftIcon={<FaArrowLeft />}
             color={"#F1F1F1"}

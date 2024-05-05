@@ -15,7 +15,8 @@ import { useRecoilState } from "recoil";
 import userAtom from "../atoms/userAtom";
 // import usePreviewImg from "../hooks/usePreviewImg";
 // import useShowToast from "../hooks/useShowToast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa6";
 
 export default function ProfilePage() {
 	// const [user, setUser] = useRecoilState(userAtom);
@@ -65,7 +66,10 @@ export default function ProfilePage() {
 		<form 
         // onSubmit={handleSubmit}
         >
+            
+
 			<Flex align={"center"} justify={"center"} my={6}>
+                
 				<Stack
 					spacing={4}
 					w={"full"}
@@ -75,6 +79,20 @@ export default function ProfilePage() {
 					boxShadow={"lg"}
 					p={6}
 				>
+                    <Flex>
+        <Link to={"/creators"}>
+          <Button
+            leftIcon={<FaArrowLeft />}
+            color={"#F1F1F1"}
+            bg={"#2035A1"}
+            _hover={{
+              bg: "blue.500",
+            }}
+          >
+            Back
+          </Button>
+        </Link>
+      </Flex>
                     <Center>
 					<Heading lineHeight={1.1} fontSize={{ base: "2xl", sm: "3xl" }}>
 						User Profile
@@ -156,8 +174,8 @@ export default function ProfilePage() {
 								setInputs({ ...inputs, password: e.target.value })
 							}
 						/>
-					</FormControl> */}
-					{/* <Stack spacing={6} direction={["column", "row"]} >
+					</FormControl>
+					<Stack spacing={6} direction={["column", "row"]} >
 						<Button
 							bg={"red.400"}
 							color={"white"}
@@ -177,7 +195,7 @@ export default function ProfilePage() {
 								bg: "green.500",
 							}}
                             type="submit"
-                            isLoading={updating}
+                            // isLoading={updating}
 						>
 							Submit
 						</Button>
