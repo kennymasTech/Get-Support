@@ -17,6 +17,7 @@ import userAtom from "../atoms/userAtom";
 // import useShowToast from "../hooks/useShowToast";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa6";
+import useGoBack from "../hooks/useHistory";
 
 export default function ProfilePage() {
   // const [user, setUser] = useRecoilState(userAtom);
