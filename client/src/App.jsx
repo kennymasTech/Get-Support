@@ -35,6 +35,7 @@ import UserPosts from "./component/UserPosts";
 import UserPage from "./pages/UserPage";
 import CreatorPosts from "./component/CreatorPosts";
 import CreatorPostsPage from "./pages/CreatorPostsPage";
+import Payment from "./component/Payment";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/creator-sub" element={<CreatorPostsPage />} />
         {/* <Route path="/audio" element={<AudioPosts />} /> */}
+        <Route path="/payment" element={<Payment />} />
         {/* <Route path="/video" element={<VideoPosts />} /> */}
         {/* <Route path="/photo" element={<PhotoPosts />} /> */}
         {/* <Route path="/text" element={<TextPosts />} /> */}
