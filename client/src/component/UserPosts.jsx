@@ -1,6 +1,7 @@
 import {
   Avatar,
   Box,
+  Button,
   Flex,
   Image,
   Menu,
@@ -16,12 +17,29 @@ import { Link } from "react-router-dom";
 //   import Actions from "./Actions";
 import { useState } from "react";
 import Actions from "./Actions";
+import { FaArrowLeft } from "react-icons/fa6";
 
 const UserPosts = ({ likes, replies, postTitle, postImg }) => {
   const [liked, setLiked] = useState(false);
 
   return (
-    <Link to={"/aliumusa/post/1"}>
+    <>
+    <Flex px={10} py={5}>
+        <Link to={"/user-page"}>
+          <Button
+            leftIcon={<FaArrowLeft />}
+            color={"#F1F1F1"}
+            bg={"#2035A1"}
+            _hover={{
+              bg: "blue.500",
+            }}
+          >
+            Back
+          </Button>
+        </Link>
+      </Flex>
+
+    <Link to={"/creator-sub"}>
       <Flex gap={3} mb={4} py={5} px={20}>
         <Flex flexDir={"column"} alignItems={"center"}>
           <Avatar src="/post1.png" name="Mark Zuckerberg" size={"md"} />
@@ -125,6 +143,7 @@ const UserPosts = ({ likes, replies, postTitle, postImg }) => {
         </Flex>
       </Flex>
     </Link>
+    </>
   );
 };
 

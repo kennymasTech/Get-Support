@@ -33,6 +33,8 @@ import Actions from "./component/Actions";
 import ProfilePage from "./component/ProfilePage";
 import UserPosts from "./component/UserPosts";
 import UserPage from "./pages/UserPage";
+import CreatorPosts from "./component/CreatorPosts";
+import CreatorPostsPage from "./pages/CreatorPostsPage";
 
 function App() {
   return (
@@ -50,14 +52,16 @@ function App() {
         <Route path="/video-posts" element={<VideoPostsPage />} />
         <Route path="/user-page" element={<UserPage />} />
         <Route path="/post-Item" element={<PostItem />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/creator-sub" element={<CreatorPostsPage />} />
         {/* <Route path="/audio" element={<AudioPosts />} /> */}
         {/* <Route path="/video" element={<VideoPosts />} /> */}
         {/* <Route path="/photo" element={<PhotoPosts />} /> */}
         {/* <Route path="/text" element={<TextPosts />} /> */}
         {/* <Route path="/dashboards" element={<Dashboard />} /> */}
-        <Route path="/user-posts" element={<UserPosts />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/actions" element={<Actions />} />
+        {/* <Route path="/user-posts" element={<UserPosts />} /> */}
+        <Route path="/creator-posts" element={<CreatorPosts />} />
+        {/* <Route path="/actions" element={<Actions />} /> */}
         <Route path="/barchart" element={<BarChart />} />
         {/* <Route path="/creators" element={<Creators />} /> */}
         {/* <Route path="/posts" element={<Posts />} /> */}

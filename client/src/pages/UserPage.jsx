@@ -1,12 +1,13 @@
 import React from "react";
 import UserPosts from "../component/UserPosts";
-import Actions from "../component/Actions";
-import { Box } from "@chakra-ui/react";
+import SidebarWithHeader from "../component/SidebarWithHeader";
 
 const UserPage = () => {
   return (
     <>
+    <SidebarWithHeader>
       <UserPosts />
+    </SidebarWithHeader>
       
       {/* <Actions /> */}
     </>
