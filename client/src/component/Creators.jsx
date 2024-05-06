@@ -94,6 +94,8 @@ const Creators = () => {
                 </Card>
               </Link>
             ))}
+            </SimpleGrid>
+            </Flex>
 
             {/* <Link to={"/user-page"}>
               <Card
@@ -200,8 +202,8 @@ const Creators = () => {
               <Text justifyContent={'center'} align={'center'} textAlign={'center'} fontSize={20} fontWeight={"light"}>Is Creating YouTube Videos</Text>
           </Card>
           </Link> */}
-          </SimpleGrid>
-        </Flex>
+
+          
         <Flex p={10} flexDir={"column"} align={"center"}>
           <Flex>
             <Flex fontSize={25} fontWeight={"semibold"}>
