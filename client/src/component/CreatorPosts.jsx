@@ -71,7 +71,7 @@ const CreatorPosts = ({ likes, replies, postTitle, postImg }) => {
 
       <Box to={"/aliumusa/post/1"}>
         <Box gap={3} mb={4} py={5} px={20}>
-          <Flex columnGap={5}>
+          <Flex columnGap={5} flexWrap={'wrap'}>
             <Flex flexDir={"column"} alignItems={"center"}>
               <Avatar
                 src={creator?.avatar}
@@ -89,21 +89,20 @@ const CreatorPosts = ({ likes, replies, postTitle, postImg }) => {
                     </Text>
                   </Flex>
 
-                  <Flex gap={5}>
+                  <Flex gap={5} flexWrap={'wrap'}>
                     <Text>@{creator?.username}</Text>
                     <Text>20 Subscriber</Text>
                     <Text>{posts?.length} Posts</Text>
                   </Flex>
 
                   <Button
+                  mt={3}
                     color={"#F1F1F1"}
                     bg={"#2035A1"}
                     _hover={{
                       bg: "blue.500",
                     }}
                     borderRadius={"3xl"}
-                    w={"25%"}
-                    mt={3}
                   >
                     Subscribe here
                   </Button>

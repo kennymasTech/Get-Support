@@ -39,8 +39,22 @@ const Creators = () => {
   return (
     <>
       {/* <SidebarWithHeader> */}
-      <Flex bg={"#FAF8F0"} flexDir={"column"} align={"center"}>
-        <Flex flexDir={"column"} align={"flex-start"}>
+      <Flex
+      //  bg={"#FAF8F0"} flexDir={"column"} align={"center"}
+      //  mt={6} 
+       pb={5} 
+       flexDir={"column"} placeItems={"center"}
+      
+       >
+        <Flex 
+        flexDir={"column"} 
+        // align={"flex-start"}
+        // gap={9}
+        // p={10}
+        flexWrap={"wrap"}
+        color={"black"}
+        justifyContent={"flex-start"}
+        >
           <Flex fontSize={30} fontWeight={"semibold"}>
             <Text>Trending Creators...</Text>
           </Flex>
@@ -50,27 +64,29 @@ const Creators = () => {
             templateColumns={{
               base: "1fr",
               lg: "repeat(3, minmax(30px, 1fr))",
-              md: "repeat(2, minmax(30px, 1fr))",
+              md: "repeat(2, minmax(20px, 1fr))",
             }}
             my={8}
+            gap={5}
           >
             {creators.map((creator) => (
               <Link key={creator._id} to={`/creator/${creator._id}`}>
                 <Card
-                  width={300}
                   key={creator.id}
+                  width={300}
                   height={350}
-                  boxShadow={"lg"}
+                  // boxShadow={"lg"}
                   bg={"gray"}
-                  borderRadius={25}
+                  color={"white"}
+                  // borderRadius={25}
                   mt={5}
                 >
                   <CardHeader>
                     <Image
                       src={creator.avatar}
                       alt={creator.name}
-                      width={280}
-                      height={300}
+                      width={250}
+                      height={200}
                     />
                   </CardHeader>
                   <Text
@@ -203,7 +219,7 @@ const Creators = () => {
           </Card>
           </Link> */}
 
-          
+
         <Flex p={10} flexDir={"column"} align={"center"}>
           <Flex>
             <Flex fontSize={25} fontWeight={"semibold"}>
