@@ -51,7 +51,7 @@ function App() {
         <Route path="/photo-posts" element={<PhotoPostsPage />} />
         <Route path="/audio-posts" element={<AudioPostsPage />} />
         <Route path="/video-posts" element={<VideoPostsPage />} />
-        <Route path="/user-page" element={<UserPage />} />
+        <Route path="/user-page/:postId" element={<UserPage />} />
         <Route path="/post-Item" element={<PostItem />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/creator/:creatorId" element={<CreatorPostsPage />} />

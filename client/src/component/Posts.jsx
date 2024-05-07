@@ -1,6 +1,14 @@
 import React, { useEffect } from "react";
 import SidebarWithHeader from "./SidebarWithHeader";
-import { Box, Button, Center, Flex, Img, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Divider,
+  Flex,
+  Img,
+  Text,
+} from "@chakra-ui/react";
 import { FaVideo } from "react-icons/fa6";
 import { MdAudiotrack } from "react-icons/md";
 import { MdPostAdd } from "react-icons/md";
@@ -33,19 +41,26 @@ const Posts = () => {
   return (
     <>
       {/* <SidebarWithHeader> */}
-      
-      <Flex bg={"#FAF8F0"} display={"flex"} align={"center"} p={10}>
+
+      <Flex
+        bg={"#FAF8F0"}
+        display={"flex"}
+        align={"center"}
+        p={10}
+        flexWrap={"wrap"}
+      >
         <Flex
           bg={"#FAF8F0"}
           display={"flex"}
           flexDir={"column"}
           justify={"flex-start"}
+          flexWrap={"wrap"}
         >
           <Flex mb={10} fontSize={30} fontWeight={"semibold"}>
             <Text>Create A Post</Text>
           </Flex>
 
-          <Flex gap={10} align={"center"}>
+          <Flex gap={10} align={"center"} flexWrap={"wrap"}>
             <Link to={"/write-posts"}>
               {" "}
               <Button
@@ -136,11 +151,20 @@ const Posts = () => {
           </Flex>
         </Flex>
       </Flex>
-      {/* <AllPosts /> */}
 
       <Box px={8}>
         {posts.map((post) => (
-          <Box borderBottom={"1px solid black"} mb={5}>
+          <Box
+            p={5}
+            borderBottom={"1px solid black"}
+            bg={"lightgray"}
+            color={"red"}
+            boxShadow={"lg"}
+            borderRadius={9}
+            placeItems={"center"}
+            justifyContent={"center"}
+            mb={5}
+          >
             <PostItem key={post._id} post={post} />
             {post.type === "text" ? (
               <Center>

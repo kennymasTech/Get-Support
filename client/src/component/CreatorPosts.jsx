@@ -70,7 +70,7 @@ const CreatorPosts = ({ likes, replies, postTitle, postImg }) => {
       </Flex>
 
       <Box to={"/aliumusa/post/1"}>
-        <Box gap={3} mb={4} py={5} px={20}>
+        <Box gap={3} mb={4} py={5} px={10} >
           <Flex columnGap={5} flexWrap={'wrap'}>
             <Flex flexDir={"column"} alignItems={"center"}>
               <Avatar
@@ -115,7 +115,15 @@ const CreatorPosts = ({ likes, replies, postTitle, postImg }) => {
 
           <Flex flexWrap={"wrap"} gap={5}>
             {posts?.map((post) => (
-              <Box>
+          <Link to={`/user-page/${post._id}`} >
+              <Box
+             bg={"lightgray"}
+             color={'red'}
+             boxShadow={"lg"}
+             p={5}
+             borderRadius={10}
+             gap={2}
+             >
                 {post.type === "video" && (
                   <Box w={"250px"} h={"150px"} gap={5} overflow={"hidden"}>
                     <video
@@ -146,7 +154,9 @@ const CreatorPosts = ({ likes, replies, postTitle, postImg }) => {
                 )}
                 <Text fontSize={"xs"}>{post.title}</Text>
               </Box>
+              </Link>
             ))}
+
             {/* <Box>
               <Box w={"250px"} h={"150px"} gap={5} overflow={"hidden"}>
                 <video
@@ -215,6 +225,7 @@ const CreatorPosts = ({ likes, replies, postTitle, postImg }) => {
               </Box>
               <Text fontSize={"xs"}>Name and Title</Text>
             </Box> */}
+          
           </Flex>
         </Box>
       </Box>

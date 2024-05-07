@@ -150,6 +150,26 @@ const getCreatorById = async (req, res) => {
   }
 };
 
+const getPostById = async (req, res) => {
+  const postId = req.params.postId;
+
+  try {
+    // Find the post by ID
+    const post = await Post.findById(postId).populate('user', 'name avatar');
+
+    // Check if the post exists
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    // If the post exists, return it
+    res.json(post);
+  } catch (err) {
+    console.error('Error fetching post:', err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 module.exports = {
   createPost,
   uploadVideo,
@@ -157,4 +177,5 @@ module.exports = {
   getPosts,
   getCreators,
   getCreatorById,
+  getPostById,
 };

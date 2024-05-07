@@ -13,19 +13,38 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { BsThreeDots } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 //   import Actions from "./Actions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Actions from "./Actions";
 import { FaArrowLeft } from "react-icons/fa6";
+import { axiosPrivate } from "../api/axios";
 
 const UserPosts = ({ likes, replies, postTitle, postImg }) => {
   const [liked, setLiked] = useState(false);
+  const { postId } = useParams();
+
+  const [post, setPost] = useState({});
+  useEffect(() => {
+    const fetchPosts = async (event) => {
+      try {
+        const response = await axiosPrivate.get(`/creators/posts/${postId}`, {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        });
+        setPost(response.data);
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchPosts();
+  }, []);
 
   return (
     <>
-    <Flex px={10} py={5}>
-        <Link to={"/creators"}>
+      <Flex px={10} py={5}>
+        <Link to={-1}>
           <Button
             leftIcon={<FaArrowLeft />}
             color={"#F1F1F1"}
@@ -39,10 +58,10 @@ const UserPosts = ({ likes, replies, postTitle, postImg }) => {
         </Link>
       </Flex>
 
-    <Link to={"/creator-sub"}>
+      {/* <Link to={"/creator-sub"}> */}
       <Flex gap={3} mb={4} py={5} px={20}>
         <Flex flexDir={"column"} alignItems={"center"}>
-          <Avatar src="/post1.png" name="Mark Zuckerberg" size={"md"} />
+          <Avatar src={post?.user?.avatar} name="Mark Zuckerberg" size={"md"} />
           <Box w={"1px"} h={"full"} bg={"gray.light"} my={2}></Box>
           {/* <Box pos={"relative"} w={"full"}>
             <Avatar
@@ -79,10 +98,10 @@ const UserPosts = ({ likes, replies, postTitle, postImg }) => {
           <Flex w={"full"} justifyContent={"space-between"}>
             <Box alignItems={"center"} w={"full"}>
               <Flex align={"center"}>
-                <Text fontWeight={"500"}>Abiodun Kenny</Text>
+                <Text fontWeight={"500"}>{post?.user?.name}</Text>
                 <Image src="/verified.png" ml={1} w={4} h={4} />
               </Flex>
-              <Text>My First Post</Text>
+              {/* <Text>My First Post</Text> */}
             </Box>
             <Flex
               alignItems={"center"}
@@ -112,7 +131,7 @@ const UserPosts = ({ likes, replies, postTitle, postImg }) => {
             </Flex>
           </Flex>
 
-          <Text fontSize={"sm"}>{postTitle}</Text>
+          <Text fontSize={"xs"}>{post.title}</Text>
           {postImg && (
             <Box
               overflow={"hidden"}
@@ -124,9 +143,32 @@ const UserPosts = ({ likes, replies, postTitle, postImg }) => {
             </Box>
           )}
           <Flex mt={1}>
-            <Box>
-              <img src="Img 10-Ola.png" alt="user-post" />
-            </Box>
+            {/* <Box>
+              <img src="https://res.cloudinary.com/dzzgaecpm/image/upload/v1715021661/posts/onf678swb0iuinj8gpcf.jpg" alt="user-post" />
+            </Box> */}
+
+            {post?.type === "video" && (
+              <Box w={"250px"} h={"150px"} gap={5} overflow={"hidden"}>
+                <video src={post.fileUrl} controls alt="video"></video>
+              </Box>
+            )}
+            {post?.type === "audio" && (
+              <Box w={"250px"} h={"150px"} gap={5} overflow={"hidden"}>
+                <audio src={post.fileUrl} controls alt="audio" />
+              </Box>
+            )}
+
+            {post?.type === "photo" && (
+              <Box w={"250px"} h={"150px"} gap={5} overflow={"hidden"}>
+                <img src={post.fileUrl} alt="image" />
+              </Box>
+            )}
+
+            {post?.type === "text" && (
+              <Box w={"250px"} h={"150px"} gap={5} overflow={"hidden"}>
+                <Text>{post.text}</Text>
+              </Box>
+            )}
           </Flex>
           <Actions liked={liked} setLiked={setLiked} />
 
@@ -142,7 +184,7 @@ const UserPosts = ({ likes, replies, postTitle, postImg }) => {
           </Flex> */}
         </Flex>
       </Flex>
-    </Link>
+      {/* </Link> */}
     </>
   );
 };

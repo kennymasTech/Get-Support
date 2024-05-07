@@ -42,16 +42,17 @@ const Creators = () => {
       <Flex
       //  bg={"#FAF8F0"} flexDir={"column"} align={"center"}
       //  mt={6} 
-       pb={5} 
+      //  pb={5} 
        flexDir={"column"} placeItems={"center"}
+       flexWrap={"wrap"}
       
        >
         <Flex 
         flexDir={"column"} 
+        flexWrap={"wrap"}
         // align={"flex-start"}
         // gap={9}
         // p={10}
-        flexWrap={"wrap"}
         color={"black"}
         justifyContent={"flex-start"}
         >
@@ -220,7 +221,7 @@ const Creators = () => {
           </Link> */}
 
 
-        <Flex p={10} flexDir={"column"} align={"center"}>
+        <Flex flexDir={"column"} align={"center"}>
           <Flex>
             <Flex fontSize={25} fontWeight={"semibold"}>
               <Text> Enable membership </Text>
