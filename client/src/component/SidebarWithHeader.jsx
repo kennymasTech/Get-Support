@@ -152,7 +152,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
           <SlUserFollowing />
           Following
         </NavItem> */}
-        <NavItem
+        {/* <NavItem
           as={NavLink}
           to={"/employees"}
           style={({ isActive }) => ({
@@ -164,7 +164,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         >
           <SlUserFollow />
           Followers
-        </NavItem>
+        </NavItem> */}
       </Accordion>
 
       {/* <Box
