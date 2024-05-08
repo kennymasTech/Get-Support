@@ -139,7 +139,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
           </AccordionPanel>
         </AccordionItem>
 
-        {/* <NavItem
+        <NavItem
           as={NavLink}
           to={"/invoice-me"}
           style={({ isActive }) => ({
@@ -151,7 +151,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         >
           <SlUserFollowing />
           Following
-        </NavItem> */}
+        </NavItem>
         <NavItem
           as={NavLink}
           to={"/employees"}
