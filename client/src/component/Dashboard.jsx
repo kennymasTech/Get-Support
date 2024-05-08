@@ -82,7 +82,7 @@ const Dashboard = () => {
               Following
             </Text>
           </Flex>
-          <SlUserFollowing size={50} color={"red"} />
+          <SlUserFollowing size={50} color={"red"}/>
         </Flex>
         <Flex
           flexGrow={1}
